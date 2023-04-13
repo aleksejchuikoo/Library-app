@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+.book-preview__wrapper {
+  width: 23%;
+  flex-shrink: 1;
+  box-shadow: 1px 1px 3px #ccc, -1px -1px 3px #ccc;
+  padding: 15px;
+  margin: 10px;
+
+  .book-preview-bold {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  span {
+    font-weight: normal;
+    color: #bbb;
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .book-preview_cover {
+    display: flex;
+    margin: 0 auto;
+    max-height: 150px;
+  }
+
+  .book-preview-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: lighten($accent, 10);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+    text-align: center;
+    color: white;
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+}
+
+@media screen and (max-width: 1050px){
+  .book-preview__wrapper {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 680px){
+  .book-preview__wrapper {
+    width: 46%;
+  }
+}

@@ -1,0 +1,7 @@
+export { default as BookPage } from './BookPage'
+export { default as CreateBookPage } from './CreateBookPage'
+export { default as LoginPage } from './LoginPage'
+export { default as RegisterPage } from './RegisterPage'
+export { default as MainPage } from './MainPage'
+export { default as UsersPage } from './UsersPage'
+export { default as MyBooksPage } from './MyBooksPage'

@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  .logo_text {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.profile__wrapper {
+  background-color: #ccc;
+  border-radius: 20px;
+  padding: 15px;
+  border: 1px solid #aaa;
+}

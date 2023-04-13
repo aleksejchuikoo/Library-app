@@ -1,0 +1,9 @@
+.books__wrapper {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+
+  &.container {
+    margin-top: 40px;
+  }
+}

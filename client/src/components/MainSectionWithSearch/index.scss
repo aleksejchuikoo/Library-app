@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+
+.main__section {
+  position: relative;
+  height: 500px;
+  background: url("../../assets/library-bg.jpeg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $accent;
+    opacity: .5;
+  }
+
+  &-info {
+    position: relative;
+    z-index: 2;
+  }
+
+  &_title {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &_desc {
+    max-width: 600px;
+    text-align: center;
+    font-size: 14px;
+    color: #eee;
+  }
+
+  &_search {
+    position: relative;
+    margin-top: 30px;
+
+    &-input {
+      width: 100%;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      padding: 20px 60px 20px 20px;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
