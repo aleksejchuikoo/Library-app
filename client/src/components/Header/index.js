@@ -3,6 +3,7 @@ import React from 'react';
 import ProfileMenu from "./ProfileMenu";
 
 import bookIcon from '../../assets/book.png'
+
 import "./index.scss"
 
 const Header = () => {
