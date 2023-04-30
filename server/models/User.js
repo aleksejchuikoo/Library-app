@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	role: {
+		type: String,
+		default: 'user'
+	},
 	books: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
 }, {
 	timestamps: true

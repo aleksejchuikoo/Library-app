@@ -7,4 +7,14 @@ const createBookValidation = [
 	body('year', 'Enter year').exists().notEmpty()
 ]
 
-export { createBookValidation }
+const updateBookValidation = [
+	body('title', 'Enter title').optional().notEmpty(),
+	body('description', 'Enter description').optional().notEmpty(),
+	body('author', 'Enter author').optional().notEmpty(),
+	body('year', 'Enter year').optional().notEmpty()
+]
+
+export {
+	createBookValidation,
+	updateBookValidation
+}

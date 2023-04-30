@@ -1,8 +1,15 @@
 import BookModel from "../models/Book.js";
 
 const getAllBooks = async (req, res) => {
+	const { title } = req.query
+	const regex = new RegExp(title, "i");
+
 	try {
-		const books = await BookModel.find().populate('bookedBy').exec()
+		const books = await BookModel.find({
+			title: {
+				$regex: regex
+			}
+		}).lean().populate('bookedBy', 'fullName').exec()
 
 		res.json(books)
 	} catch (e) {
@@ -13,11 +20,28 @@ const getAllBooks = async (req, res) => {
 	}
 }
 
+const getMyBooks = async (req, res) => {
+	const books = await BookModel.find({ bookedBy: {
+			_id: req.userId
+		}
+	}).populate('bookedBy').exec()
+
+	return res.json(books)
+}
+
 const getBook = async (req, res) => {
 	try {
 		const { id } = req.params
 
-		const book = await BookModel.findById({ _id: id }).populate('bookedBy').exec()
+		const book = await BookModel.findOneAndUpdate({
+			_id: id
+		}, {
+			$inc: {
+				viewsCount: 1
+			}
+		}, {
+			returnDocument: 'after'
+		}).populate('bookedBy').exec()
 
 		res.json(book)
 	} catch (e) {
@@ -74,7 +98,6 @@ const updateBook = async (req, res) => {
 	try {
 		const { id } = req.params
 
-		console.log(req.body)
 		await BookModel.updateOne({
 			_id: id
 		}, {
@@ -92,10 +115,55 @@ const updateBook = async (req, res) => {
 	}
 }
 
+const addBook = async (req, res) => {
+	try {
+		const { bookId } = req.body
+
+		const book = await BookModel.findOneAndUpdate({
+			_id: bookId
+		}, {
+			bookedBy: req.userId
+		}, {
+			returnDocument: 'after'
+		}).lean().populate('bookedBy', 'fullName').exec()
+
+		return res.json(book)
+	} catch (e) {
+		console.log(e)
+		res.status(500).json({
+			message: "Could not update the book"
+		});
+	}
+}
+
+const returnBook = async (req, res) => {
+	try {
+		const { bookId } = req.body
+
+		const book = await BookModel.findOneAndUpdate({
+			_id: bookId
+		}, {
+			bookedBy: null
+		}, {
+			returnDocument: 'after'
+		})
+
+		return res.json(book)
+	} catch (e) {
+		console.log(e)
+		res.status(500).json({
+			message: "Could not update the book"
+		});
+	}
+}
+
 export {
 	getAllBooks,
+	getMyBooks,
 	getBook,
 	createBook,
 	updateBook,
-	removeBook
+	removeBook,
+	addBook,
+	returnBook
 }

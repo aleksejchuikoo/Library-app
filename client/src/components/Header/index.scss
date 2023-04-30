@@ -10,6 +10,7 @@
 .header_logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   .logo {
     margin-right: 10px;
@@ -22,8 +23,59 @@
 }
 
 .profile__wrapper {
-  background-color: #ccc;
-  border-radius: 20px;
-  padding: 15px;
-  border: 1px solid #aaa;
+  position: relative;
+
+  .profile-username {
+    padding: 15px;
+    min-width: 180px;
+    text-align: center;
+    border: 1px solid #aaa;
+    background-color: lighten(#673AB6, 30);
+    border-radius: 20px;
+    cursor: pointer;
+
+    &.active {
+      border-radius: 20px 20px 0 0;
+    }
+  }
+
+  .profile__links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 3;
+    border: 1px solid #aaa;
+    border-top: none;
+    width: 100%;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    & * {
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+      color: black;
+      transition: .3s;
+
+      &:last-child {
+        border-bottom: none;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #ffbaba;
+
+        &:hover {
+          background-color: darken(#ffbaba, 10);
+        }
+      }
+
+      &:hover:not(:last-child) {
+        background-color: #ddd;
+      }
+    }
+  }
 }

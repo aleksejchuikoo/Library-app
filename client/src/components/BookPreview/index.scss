@@ -35,15 +35,22 @@
     width: 100%;
     margin-top: 15px;
     padding: 10px;
-    background-color: lighten($accent, 10);
     border-radius: 20px;
-    cursor: pointer;
     transition: .3s;
     text-align: center;
     color: white;
 
-    &:hover {
-      background-color: $accent;
+    &.disabled {
+      background-color: #ccc;
+      cursor: default;
+    }
+
+    &.details-btn {
+      background-color: lighten($accent, 10);
+
+      &:hover {
+        background-color: $accent;
+      }
     }
   }
 }

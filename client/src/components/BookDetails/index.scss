@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+.book-details {
+  display: flex;
+  margin-top: 30px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+
+  .book-img {
+    max-height: 400px;
+  }
+
+  .book-info {
+    margin-left: 150px;
+    font-size: 18px;
+
+    * {
+      margin: 10px 0;
+      font-weight: bold;
+
+      &:is(span) {
+        font-weight: normal;
+        font-size: 16px;
+      }
+
+      &:is(button) {
+        margin: 15px 5px;
+      }
+    }
+
+    .book-title {
+      font-size: 30px;
+    }
+
+    .book-description {
+      margin: 10px 0;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}
+
+.add-btn {
+  background-color: lighten(#4f771d, 10);
+  font-size: 16px;
+  font-family: $fontMontserrat;
+  color: white;
+  width: 100px;
+  transition: .3s;
+
+  &:hover {
+    background-color: #4f771d;
+  }
+}

@@ -1,0 +1,50 @@
+.create-book-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .create-book__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .create-book-form_title {
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #aaa;
+    max-width: 600px;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: #bbb;
+
+    input, textarea {
+      width: 500px;
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 10px;
+      padding: 10px;
+
+      &:focus {
+        border: 1px solid black;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .add-btn {
+      margin-top: 20px;
+    }
+  }
+}

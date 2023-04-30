@@ -1,0 +1,55 @@
+.picture_block {
+  position: relative;
+  max-width: 200px;
+  background-color: #ccc;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+
+  &:hover {
+    .uploaded_picture {
+      opacity: .2;
+    }
+
+    .upload-btn__wrapper {
+      display: flex;
+    }
+  }
+
+  .uploaded_picture {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    transition: .3s;
+  }
+
+  .upload-btn__wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .upload-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .remove-img {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+}

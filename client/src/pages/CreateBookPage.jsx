@@ -1,8 +1,12 @@
 import React from 'react';
 
-const CreateBookPage = (props) => {
+import CreateBookForm from "../components/CreateBookForm";
+
+const CreateBookPage = () => {
 	return (
-		<div>CreateBookPage</div>
+		<div className='container'>
+			<CreateBookForm />
+		</div>
 	);
 }
 

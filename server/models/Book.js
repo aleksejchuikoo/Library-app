@@ -17,6 +17,10 @@ const BookSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	viewsCount: {
+		type: Number,
+		default: 0
+	},
 	picture: String,
 	bookedBy: {
 		type: mongoose.Schema.Types.ObjectId,

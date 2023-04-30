@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 .auth__wrapper {
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +39,11 @@
     }
   }
 
+  .error {
+    font-size: 12px;
+    color: red;
+  }
+
   .form_btn {
     display: block;
     width: 100%;
@@ -50,6 +55,11 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
+
+    &.disabled {
+      background-color: #ccc;
+      cursor: default;
+    }
   }
 
   .form_info {

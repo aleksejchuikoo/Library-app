@@ -1,9 +1,11 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 import authRoute from './routes/auth.routes.js'
 import booksRoute from './routes/books.routes.js'
+import usersRoute from './routes/users.routes.js'
 
 import upload from "./config/multer.js";
 
@@ -11,6 +13,7 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 8000
 
+app.use(cors())
 app.use(express.json())
 app.use('/uploads', express.static('uploads'))
 
@@ -22,6 +25,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
 
 app.use('/auth', authRoute)
 app.use('/books', booksRoute)
+app.use('/users', usersRoute)
 
 const startApp = async () => {
 	try {
